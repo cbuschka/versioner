@@ -2,25 +2,21 @@ package main
 
 import (
     "fmt"
+    "github.com/cbuschka/semver/internal/git"
+    "github.com/cbuschka/semver/internal/version"
     "log"
-    "os/exec"
-    "strings"
 )
 
 func main() {
-    tags, err := ListTags()
+    tags, err := git.ListTags()
     if err != nil {
         log.Fatal(err)
     }
     fmt.Printf("The output is %v\n", tags)
-}
 
-func ListTags() ([]string, error) {
-    out, err := exec.Command("git", "tag", "--list").Output()
+    versions, err := version.ConvertAndSortAsc(tags)
     if err != nil {
-        return nil, err
+        log.Fatal(err)
     }
-    outText := string(out)
-    tags := strings.Split(outText,"\n")
-    return tags, nil
+    fmt.Printf("The output is %v\n", versions)
 }
