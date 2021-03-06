@@ -8,6 +8,10 @@ build:
 clean:
 	rm -rf ${TOP_DIR}/dist/ ${TOP_DIR}/.cache/
 
+format:
+	@cd ${TOP_DIR} && \
+	go fmt ./...
+
 test:
 	@cd ${TOP_DIR} && \
 	go test -cover -race -coverprofile=coverage.txt -covermode=atomic ./cmd/... ./internal/...
