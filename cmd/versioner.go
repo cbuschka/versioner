@@ -2,8 +2,8 @@ package main
 
 import (
 	"fmt"
-	"github.com/cbuschka/semver/internal/git"
-	"github.com/cbuschka/semver/internal/version"
+	"github.com/cbuschka/versioner/internal/git"
+	"github.com/cbuschka/versioner/internal/version"
 	"log"
 )
 

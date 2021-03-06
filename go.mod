@@ -1,4 +1,4 @@
-module github.com/cbuschka/semver
+module github.com/cbuschka/versioner
 
 go 1.16
 

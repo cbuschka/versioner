@@ -6,7 +6,7 @@ endif
 build:
 	@cd ${TOP_DIR} && \
 	mkdir -p dist/ && \
-	CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -a -ldflags "-extldflags \"-static\"" -o dist/semver ./cmd/semver.go
+	CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -a -ldflags "-extldflags \"-static\"" -o dist/versioner ./cmd/versioner.go
 
 clean:
 	rm -rf ${TOP_DIR}/dist/ ${TOP_DIR}/.cache/
