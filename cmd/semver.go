@@ -14,7 +14,7 @@ func main() {
     }
     fmt.Printf("The output is %v\n", tags)
 
-    versions, err := version.ConvertAndSortAsc(tags)
+    versions, _, err := version.FilterConvertAndSortAsc(tags)
     if err != nil {
         log.Fatal(err)
     }
