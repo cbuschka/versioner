@@ -25,6 +25,8 @@ func (config *LatestVersionConfig) Run() error {
 
 	if len(versions) > 0 {
 		Print("%s", versions[len(versions)-1])
+	} else {
+		Debug("No versions found.")
 	}
 
 	return nil
