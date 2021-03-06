@@ -1,34 +1,34 @@
 package version
 
 import (
-    "log"
     goversion "github.com/hashicorp/go-version"
     "strings"
     "sort"
 )
 
-func ConvertAndSortAsc(versionStrs []string) ([]*goversion.Version, error) {
-    versions, err := convert(versionStrs)
+func FilterConvertAndSortAsc(versionStrs []string) ([]*goversion.Version, []string, error) {
+    versions, removedVersionStrs, err := convert(versionStrs)
     if err != nil {
-      return nil, err
+      return nil, nil, err
     }
 
     sort.Sort(VersionCollection(versions))
-    return versions, nil
+    return versions, removedVersionStrs, nil
 }
 
-func convert(versionStrs []string) ([]*goversion.Version, error) {
+func convert(versionStrs []string) ([]*goversion.Version, []string, error) {
     versions := make([]*goversion.Version,0)
+    removedVersionStrs := make([]string,0)
     for _, versionStr := range versionStrs {
         versionStr = strings.TrimSpace(versionStr)
         if len(versionStr) > 0 {
           version, err := goversion.NewVersion(versionStr)
           if err != nil {
-              log.Printf("err %v with %s\n", err, versionStr)
+              removedVersionStrs = append(removedVersionStrs, versionStr)
           } else {
               versions = append(versions, version)
           }
         }
     }
-    return versions, nil
+    return versions, removedVersionStrs, nil
 }

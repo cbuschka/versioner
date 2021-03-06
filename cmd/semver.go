@@ -12,11 +12,12 @@ func main() {
     if err != nil {
         log.Fatal(err)
     }
-    fmt.Printf("The output is %v\n", tags)
+    fmt.Printf("Tags found: %v\n", tags)
 
-    versions, err := version.ConvertAndSortAsc(tags)
+    versions, removedTags, err := version.FilterConvertAndSortAsc(tags)
     if err != nil {
         log.Fatal(err)
     }
-    fmt.Printf("The output is %v\n", versions)
+    fmt.Printf("Invalid tags skipped: %v\n", removedTags)
+    fmt.Printf("Sorted versions: %v\n", versions)
 }
