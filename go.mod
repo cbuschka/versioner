@@ -5,4 +5,5 @@ go 1.16
 require (
 	github.com/go-git/go-git/v5 v5.2.0
 	github.com/hashicorp/go-version v1.2.1 // indirect
+	github.com/stretchr/testify v1.7.0 // indirect
 )
