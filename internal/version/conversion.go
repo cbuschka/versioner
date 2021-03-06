@@ -12,7 +12,7 @@ func FilterConvertAndSortAsc(versionStrs []string) ([]*goversion.Version, []stri
 		return nil, nil, err
 	}
 
-	sort.Sort(VersionCollection(versions))
+	sort.Sort(Collection(versions))
 	return versions, removedVersionStrs, nil
 }
 
