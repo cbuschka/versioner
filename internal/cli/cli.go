@@ -7,6 +7,7 @@ import (
 
 type Config struct {
 	LatestVersion LatestVersionConfig  `opts:"mode=cmd,help=Get latest version from git tags."`
+	NextVersion NextVersionConfig  `opts:"mode=cmd,help=Get next for latest version from git tags."`
 }
 
 func Run() {

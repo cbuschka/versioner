@@ -10,6 +10,15 @@ type Version struct {
 	version *goversion.Version
 }
 
+func InitialVersion() *Version {
+	version, err := ParseVersion("v1.0.0")
+	if err != nil {
+		panic(err)
+	}
+
+	return version
+}
+
 func ParseVersion(raw string) (*Version, error) {
 	version, err := goversion.NewVersion(raw)
 	if err != nil {
