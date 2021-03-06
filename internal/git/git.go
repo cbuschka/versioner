@@ -5,6 +5,7 @@ import (
 	"strings"
 )
 
+// ListTags calls git command and lists tags
 func ListTags() ([]string, error) {
 	out, err := exec.Command("git", "tag", "--list").Output()
 	if err != nil {
