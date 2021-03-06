@@ -6,6 +6,8 @@ import (
 	"strings"
 )
 
+// FilterConvertAndSortAsc sorts versionStrs matching the semver format in ascending order and
+// returns removedVersions as strings in input order
 func FilterConvertAndSortAsc(versionStrs []string) ([]*goversion.Version, []string, error) {
 	versions, removedVersionStrs, err := convert(versionStrs)
 	if err != nil {
