@@ -1,11 +1,7 @@
 package version
 
-import (
-	goversion "github.com/hashicorp/go-version"
-)
-
 //Collection is a wrapper to make Version sortable
-type Collection []*goversion.Version
+type Collection []*Version
 
 // Len gives length of collection.
 func (v Collection) Len() int {
@@ -14,7 +10,7 @@ func (v Collection) Len() int {
 
 // Less compares two version items.
 func (v Collection) Less(i, j int) bool {
-	return v[i].LessThan(v[j])
+	return v[i].version.LessThan(v[j].version)
 }
 
 // Swap swaps two version items.

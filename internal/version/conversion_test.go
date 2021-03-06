@@ -20,6 +20,7 @@ func TestFilterConvertAndSortAsc(t *testing.T) {
 	assert.Equal(t, "0.0.1", versions[0].String())
 	assert.Equal(t, "1.0.0", versions[1].String())
 	assert.Equal(t, "3.0.0", versions[2].String())
+	assert.Equal(t, "v3.0", versions[2].Original())
 	assert.Equal(t, "123.0.0", versions[3].String())
 	assert.Equal(t, "999.8.1", versions[4].String())
 }
