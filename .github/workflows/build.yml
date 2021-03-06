@@ -1,0 +1,27 @@
+on: [push, pull_request,workflow_dispatch]
+name: build
+jobs:
+  build:
+    runs-on: ubuntu-20.04
+    steps:
+    - name: Install Go
+      uses: actions/setup-go@v2
+      with:
+        go-version: 1.16.x
+
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Test with coverage
+      run: make test
+
+    - name: Upload coverage data to codecov.io
+      uses: codecov/codecov-action@v1
+      with:
+        file: ./coverage.txt
+
+    - name: Test with coverage
+      run: make build
+
+    - name: Update goreportcard
+      uses: creekorful/goreportcard-action@v1.0
