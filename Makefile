@@ -10,7 +10,7 @@ clean:
 
 format:
 	@cd ${TOP_DIR} && \
-	go fmt ./...
+	gofmt -s -w .
 
 test:
 	@cd ${TOP_DIR} && \
