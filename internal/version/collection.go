@@ -1,7 +1,7 @@
 package version
 
 import (
-  goversion "github.com/hashicorp/go-version"
+	goversion "github.com/hashicorp/go-version"
 )
 
 type VersionCollection []*goversion.Version

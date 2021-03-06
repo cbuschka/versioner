@@ -6,7 +6,7 @@ import (
 )
 
 func TestFilterConvertAndSortAsc(t *testing.T) {
-	tags := []string{"invalid", "1.0.0", "0.0.1", "123", "999.8.1"};
+	tags := []string{"invalid", "1.0.0", "0.0.1", "123", "999.8.1"}
 
 	versions, removedTags, err := FilterConvertAndSortAsc(tags)
 	if err != nil {
