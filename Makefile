@@ -1,4 +1,7 @@
 TOP_DIR := $(dir $(abspath $(lastword $(MAKEFILE_LIST))))
+ifeq (${GOPATH},)
+	GOPATH := ${HOME}/go
+endif
 
 build:
 	@cd ${TOP_DIR} && \
@@ -15,3 +18,8 @@ format:
 test:
 	@cd ${TOP_DIR} && \
 	go test -cover -race -coverprofile=coverage.txt -covermode=atomic ./cmd/... ./internal/...
+
+lint:
+	@cd ${TOP_DIR} && \
+	go get -u golang.org/x/lint/golint && \
+	${GOPATH}/bin/golint ./internal/... ./cmd/...
