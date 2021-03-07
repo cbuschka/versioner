@@ -25,7 +25,19 @@ func TestParseVersionWithLeadingV(t *testing.T) {
 	assert.Equal(t, "v1", version.Original())
 }
 
-func TestNext(t *testing.T) {
+func TestNextWithoutPrefix(t *testing.T) {
+	version, err := ParseVersion("1.0")
+	if err != nil {
+		t.Errorf("Failure.")
+	}
+
+	next := version.Next()
+
+	assert.Equal(t, "1.0.1", next.String())
+	assert.Equal(t, "1.0.1", next.Original())
+}
+
+func TestNextWithPrefixV(t *testing.T) {
 	version, err := ParseVersion("v1")
 	if err != nil {
 		t.Errorf("Failure.")
