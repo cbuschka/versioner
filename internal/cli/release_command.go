@@ -11,7 +11,7 @@ type ReleaseCommandConfig struct {
 // Run executes the release command.
 func (config *ReleaseCommandConfig) Run() error {
 
-	git := gitpkg.NewGit()
+	git := gitpkg.GetGit()
 
 	err := release(git)
 

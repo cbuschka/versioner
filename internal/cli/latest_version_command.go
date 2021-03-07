@@ -11,7 +11,7 @@ type LatestVersionCommandConfig struct {
 // Run executes the latest-version command.
 func (config *LatestVersionCommandConfig) Run() error {
 
-	git := gitpkg.NewGit()
+	git := gitpkg.GetGit()
 
 	latestVersion, err := getLatestVersion(git)
 	if err != nil {

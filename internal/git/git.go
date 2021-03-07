@@ -16,8 +16,8 @@ type Git interface {
 // Session is a git session.
 type Session struct{}
 
-// NewGit produces a new git session.
-func NewGit() *Session {
+// GetGit produces a new git session.
+func GetGit() *Session {
 	return &Session{}
 }
 
