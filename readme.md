@@ -9,6 +9,11 @@
 
 ## Usage
 
+### Release (tag & push)
+```
+versioner release
+```
+
 ### Get latest version by git tags
 ```
 versioner latest-version
