@@ -1,9 +1,9 @@
 package cli
 
-type LatestVersionConfig struct {
+type LatestVersionCommandConfig struct {
 }
 
-func (config *LatestVersionConfig) Run() error {
+func (config *LatestVersionCommandConfig) Run() error {
 
 	latestVersion, err := getLatestVersion()
 	if err != nil {

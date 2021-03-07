@@ -4,10 +4,10 @@ import (
         "github.com/cbuschka/versioner/internal/version"
 )
 
-type NextVersionConfig struct {
+type NextVersionCommandConfig struct {
 }
 
-func (config *NextVersionConfig) Run() error {
+func (config *NextVersionCommandConfig) Run() error {
 
 	latestVersion, err := getLatestVersion()
 	if err != nil {
