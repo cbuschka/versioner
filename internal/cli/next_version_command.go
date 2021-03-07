@@ -11,7 +11,10 @@ type NextVersionCommandConfig struct {
 // Run executes the next-version command.
 func (config *NextVersionCommandConfig) Run() error {
 
-	git := gitpkg.GetGit()
+	git, err := gitpkg.GetGit()
+	if err != nil {
+		return err
+	}
 
 	nextVersion, err := getNextVersion(git)
 	if err != nil {
