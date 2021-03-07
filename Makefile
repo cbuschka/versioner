@@ -34,3 +34,7 @@ lint:
 	@cd ${TOP_DIR} && \
 	go get -u golang.org/x/lint/golint && \
 	${GOPATH}/bin/golint ./internal/... ./cmd/...
+
+refresh:
+	@cd ${TOP_DIR} && \
+	go clean -modcache && go mod tidy 
