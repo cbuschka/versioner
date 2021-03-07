@@ -1,7 +1,7 @@
 package cli
 
 import (
-        gitpkg "github.com/cbuschka/versioner/internal/git"
+	gitpkg "github.com/cbuschka/versioner/internal/git"
 )
 
 type ReleaseCommandConfig struct {

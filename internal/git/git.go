@@ -12,7 +12,7 @@ type Git interface {
 	Push(withTags bool) error
 }
 
-type GitSession struct {}
+type GitSession struct{}
 
 func NewGit() *GitSession {
 	return &GitSession{}

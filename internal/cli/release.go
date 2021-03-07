@@ -1,7 +1,7 @@
 package cli
 
 import (
-        gitpkg "github.com/cbuschka/versioner/internal/git"
+	gitpkg "github.com/cbuschka/versioner/internal/git"
 )
 
 func release(git gitpkg.Git) error {

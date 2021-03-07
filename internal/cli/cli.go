@@ -6,10 +6,10 @@ import (
 )
 
 type Config struct {
-	LatestVersion LatestVersionCommandConfig  `opts:"mode=cmd,help=Get latest version from git tags."`
-	NextVersion NextVersionCommandConfig  `opts:"mode=cmd,help=Get next for latest version from git tags."`
-	Version VersionCommandConfig  `opts:"mode=cmd,help=Get version of versioner."`
-	Release ReleaseCommandConfig  `opts:"mode=cmd,help=Perform a release (Tag and push)."`
+	LatestVersion LatestVersionCommandConfig `opts:"mode=cmd,help=Get latest version from git tags."`
+	NextVersion   NextVersionCommandConfig   `opts:"mode=cmd,help=Get next for latest version from git tags."`
+	Version       VersionCommandConfig       `opts:"mode=cmd,help=Get version of versioner."`
+	Release       ReleaseCommandConfig       `opts:"mode=cmd,help=Perform a release (Tag and push)."`
 }
 
 func Run() {

@@ -43,7 +43,7 @@ func (version Version) Next() *Version {
 	}
 	segments := version.version.Segments()
 	if version.version.Prerelease() == "" {
-		segments[len(segments)-1] = segments[len(segments)-1]+1
+		segments[len(segments)-1] = segments[len(segments)-1] + 1
 	}
 
 	return toVersion(prefix, segments)

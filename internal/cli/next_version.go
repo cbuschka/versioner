@@ -1,8 +1,8 @@
 package cli
 
 import (
-        gitpkg "github.com/cbuschka/versioner/internal/git"
-        "github.com/cbuschka/versioner/internal/version"
+	gitpkg "github.com/cbuschka/versioner/internal/git"
+	"github.com/cbuschka/versioner/internal/version"
 )
 
 func getNextVersion(git gitpkg.Git) (*version.Version, error) {

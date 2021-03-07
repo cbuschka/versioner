@@ -7,9 +7,9 @@ import (
 )
 
 type GitMock struct {
-	tags []string
-	clean bool
-	recordedTags []string
+	tags           []string
+	clean          bool
+	recordedTags   []string
 	recordedPushes []bool
 }
 
