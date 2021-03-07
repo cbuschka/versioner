@@ -15,7 +15,7 @@ type Git interface {
 }
 
 // Session is a git session.
-type Session struct{
+type Session struct {
 	repoDir string
 }
 
