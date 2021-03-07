@@ -8,6 +8,8 @@ import (
 type Git interface {
 	ListTags() ([]string, error)
 	IsWorkspaceClean() (bool, error)
+	Tag(tags string) error
+	Push(withTags bool) error
 }
 
 type GitSession struct {}
@@ -34,4 +36,20 @@ func (git *GitSession) IsWorkspaceClean() (bool, error) {
 	}
 	isClean := string(out) == ""
 	return isClean, nil
+}
+
+func (git *GitSession) Tag(tag string) error {
+	_, err := exec.Command("git", "tag", tag).Output()
+	if err != nil {
+		return err
+	}
+	return nil
+}
+
+func (git *GitSession) Push(withTags bool) error {
+	_, err := exec.Command("git", "push", "--tags", "--porcelain").Output()
+	if err != nil {
+		return err
+	}
+	return nil
 }

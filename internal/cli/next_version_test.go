@@ -7,7 +7,7 @@ import (
 )
 
 func TestGetNextVersionWhenNoTagsPresent(t *testing.T) {
-	gitMock := GitMock{[]string{}, true}
+	gitMock := &GitMock{[]string{}, true, []string{}, []bool{}}
 
 	nextVersion, _ := getNextVersion(gitpkg.Git(gitMock))
 
@@ -15,7 +15,7 @@ func TestGetNextVersionWhenNoTagsPresent(t *testing.T) {
 }
 
 func TestGetNextVersionWhenTagsPresent(t *testing.T) {
-	gitMock := GitMock{[]string{"v999.2.0"}, true}
+	gitMock := &GitMock{[]string{"v999.2.0"}, true, []string{}, []bool{}}
 
 	nextVersion, _ := getNextVersion(gitpkg.Git(gitMock))
 
