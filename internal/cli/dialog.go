@@ -16,5 +16,6 @@ func Print(format string, a ...interface{}) {
 	fmt.Printf("%s\n", fmt.Sprintf(format, a...))
 }
 
+// Debug prints a message to console when verbose mode is chosen.
 func Debug(format string, a ...interface{}) {
 }

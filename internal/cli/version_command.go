@@ -5,10 +5,12 @@ import (
 	"runtime"
 )
 
+// VersionCommandConfig is the version command config.
 type VersionCommandConfig struct {
 	Long bool
 }
 
+// Run executes the version command.
 func (config *VersionCommandConfig) Run() error {
 	buildInfo := build.GetBuildInfo()
 	if !config.Long {

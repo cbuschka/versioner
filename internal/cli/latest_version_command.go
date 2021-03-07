@@ -4,9 +4,11 @@ import (
 	gitpkg "github.com/cbuschka/versioner/internal/git"
 )
 
+// LatestVersionCommandConfig is the command config for latest-version command.
 type LatestVersionCommandConfig struct {
 }
 
+// Run executes the latest-version command.
 func (config *LatestVersionCommandConfig) Run() error {
 
 	git := gitpkg.NewGit()

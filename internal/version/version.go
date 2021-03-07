@@ -6,10 +6,12 @@ import (
 	"strings"
 )
 
+// Version is a version following the semver rules.
 type Version struct {
 	version *goversion.Version
 }
 
+// InitialVersion produces the first version of a project.
 func InitialVersion() *Version {
 	version, err := ParseVersion("v1.0.0")
 	if err != nil {
@@ -19,6 +21,7 @@ func InitialVersion() *Version {
 	return version
 }
 
+// ParseVersion parses and validates a version string.
 func ParseVersion(raw string) (*Version, error) {
 	version, err := goversion.NewVersion(raw)
 	if err != nil {
@@ -28,14 +31,17 @@ func ParseVersion(raw string) (*Version, error) {
 	return &Version{version}, nil
 }
 
+// String converts a version to a string.
 func (version Version) String() string {
 	return version.version.String()
 }
 
+// Original gives the raw version value in the representation given to ParseVersion.
 func (version Version) Original() string {
 	return version.version.Original()
 }
 
+// Next calculates a new successor version.
 func (version Version) Next() *Version {
 	prefix := ""
 	if strings.HasPrefix(version.version.Original(), "v") {

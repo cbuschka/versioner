@@ -5,6 +5,7 @@ import (
 	"strings"
 )
 
+// Git is the interface to a git session.
 type Git interface {
 	ListTags() ([]string, error)
 	IsWorkspaceClean() (bool, error)
@@ -12,14 +13,16 @@ type Git interface {
 	Push(withTags bool) error
 }
 
-type GitSession struct{}
+// Session is a git session.
+type Session struct{}
 
-func NewGit() *GitSession {
-	return &GitSession{}
+// NewGit produces a new git session.
+func NewGit() *Session {
+	return &Session{}
 }
 
 // ListTags calls git command and lists tags
-func (git *GitSession) ListTags() ([]string, error) {
+func (git *Session) ListTags() ([]string, error) {
 	out, err := exec.Command("git", "tag", "--list").Output()
 	if err != nil {
 		return nil, err
@@ -29,7 +32,8 @@ func (git *GitSession) ListTags() ([]string, error) {
 	return tags, nil
 }
 
-func (git *GitSession) IsWorkspaceClean() (bool, error) {
+// IsWorkspaceClean checks if the workspace is clean.
+func (git *Session) IsWorkspaceClean() (bool, error) {
 	out, err := exec.Command("git", "status", "--porcelain").Output()
 	if err != nil {
 		return false, err
@@ -38,7 +42,8 @@ func (git *GitSession) IsWorkspaceClean() (bool, error) {
 	return isClean, nil
 }
 
-func (git *GitSession) Tag(tag string) error {
+// Tag creates a tag.
+func (git *Session) Tag(tag string) error {
 	_, err := exec.Command("git", "tag", tag).Output()
 	if err != nil {
 		return err
@@ -46,7 +51,8 @@ func (git *GitSession) Tag(tag string) error {
 	return nil
 }
 
-func (git *GitSession) Push(withTags bool) error {
+// Push pushes the git repository status to origin
+func (git *Session) Push(withTags bool) error {
 	_, err := exec.Command("git", "push", "--tags", "--porcelain").Output()
 	if err != nil {
 		return err
