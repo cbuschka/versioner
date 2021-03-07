@@ -1,11 +1,11 @@
 package cli
 
 import (
-	"github.com/cbuschka/versioner/internal/git"
+	gitpkg "github.com/cbuschka/versioner/internal/git"
 	"github.com/cbuschka/versioner/internal/version"
 )
 
-func getLatestVersion() (*version.Version, error) {
+func getLatestVersion(git gitpkg.Git) (*version.Version, error) {
 
 	tags, err := git.ListTags()
 	if err != nil {

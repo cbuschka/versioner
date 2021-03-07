@@ -1,6 +1,7 @@
 package cli
 
 import (
+        gitpkg "github.com/cbuschka/versioner/internal/git"
         "github.com/cbuschka/versioner/internal/version"
 )
 
@@ -9,7 +10,9 @@ type NextVersionCommandConfig struct {
 
 func (config *NextVersionCommandConfig) Run() error {
 
-	latestVersion, err := getLatestVersion()
+	git := gitpkg.NewGit()
+
+	latestVersion, err := getLatestVersion(git)
 	if err != nil {
 		return err
 	}

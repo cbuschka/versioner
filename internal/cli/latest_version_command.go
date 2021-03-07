@@ -1,11 +1,17 @@
 package cli
 
+import (
+        gitpkg "github.com/cbuschka/versioner/internal/git"
+)
+
 type LatestVersionCommandConfig struct {
 }
 
 func (config *LatestVersionCommandConfig) Run() error {
 
-	latestVersion, err := getLatestVersion()
+	git := gitpkg.NewGit()
+
+	latestVersion, err := getLatestVersion(git)
 	if err != nil {
 		return err
 	}
