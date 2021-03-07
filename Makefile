@@ -8,7 +8,7 @@ ifeq (${GOPATH},)
 	GOPATH := ${HOME}/go
 endif
 
-build:
+build:	test
 	@cd ${TOP_DIR} && \
 	mkdir -p dist/ && \
 	CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -a \
