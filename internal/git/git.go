@@ -7,6 +7,7 @@ import (
 
 type Git interface {
 	ListTags() ([]string, error)
+	IsWorkspaceClean() (bool, error)
 }
 
 type GitSession struct {}
@@ -24,4 +25,13 @@ func (git *GitSession) ListTags() ([]string, error) {
 	outText := string(out)
 	tags := strings.Split(outText, "\n")
 	return tags, nil
+}
+
+func (git *GitSession) IsWorkspaceClean() (bool, error) {
+	out, err := exec.Command("git", "status", "--porcelain").Output()
+	if err != nil {
+		return false, err
+	}
+	isClean := string(out) == ""
+	return isClean, nil
 }
