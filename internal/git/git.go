@@ -29,6 +29,7 @@ func GetGit() (*Session, error) {
 	return &Session{workingDir}, nil
 }
 
+// NewGit creates a new git session with repo at repoDir.
 func NewGit(repoDir string) (*Session, error) {
 	err := os.Chdir(repoDir)
 	if err != nil {
