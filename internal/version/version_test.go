@@ -5,7 +5,17 @@ import (
 	"testing"
 )
 
-func TestParseVersion(t *testing.T) {
+func TestParseVersionWithoutPrefix(t *testing.T) {
+	version, err := ParseVersion("1.0")
+	if err != nil {
+		t.Errorf("Failure.")
+	}
+
+	assert.Equal(t, "1.0.0", version.String())
+	assert.Equal(t, "1.0", version.Original())
+}
+
+func TestParseVersionWithLeadingV(t *testing.T) {
 	version, err := ParseVersion("v1")
 	if err != nil {
 		t.Errorf("Failure.")
