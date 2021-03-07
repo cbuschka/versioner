@@ -19,6 +19,11 @@ versioner latest-version
 versioner next-version
 ```
 
+### Get versioner build version info
+```
+versioner version
+```
+
 ## Build
 
 ```
