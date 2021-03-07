@@ -7,6 +7,18 @@
 * go 1.16.x
 * GNU make
 
+## Usage
+
+### Get latest version by git tags
+```
+versioner latest-version
+```
+
+### Get next version for latest by git tags
+```
+versioner next-version
+```
+
 ## Build
 
 ```
